@@ -4,11 +4,11 @@
   "parameters": {
     "name": {
       "type": "String",
-      "defaultValue": "[uniqueString("TestFAName", subscription().subscriptionId)))]"
+      "defaultValue": ""
     },
     "location": {
       "type": "String",
-      "defaultValue": "[uniqueString("TestFAResourceGroup", subscription().subscriptionId)))]"
+      "defaultValue": ""
     },
     "hostingPlanName": {
       "type": "String"
@@ -17,31 +17,39 @@
       "type": "String"
     },
     "alwaysOn": {
-      "type": "Bool"
+      "type": "Bool",
+      "defaultValue": false
     },
     "use32BitWorkerProcess": {
-      "type": "Bool"
+      "type": "Bool",
+      "defaultValue": true
     },
     "storageAccountName": {
       "type": "String"
     },
     "netFrameworkVersion": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": "v6.0"
     },
     "sku": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": "PremiumV2"
     },
     "skuCode": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": "P1v2"
     },
     "workerSize": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": 3
     },
     "workerSizeId": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": 3
     },
     "numberOfWorkers": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": 1
     }
   },
   "variables": {},
