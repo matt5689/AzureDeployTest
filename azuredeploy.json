@@ -40,15 +40,15 @@
     },
     "workerSize": {
       "type": "String",
-      "defaultValue": 3
+      "defaultValue": "3"
     },
     "workerSizeId": {
       "type": "String",
-      "defaultValue": 3
+      "defaultValue": "3"
     },
     "numberOfWorkers": {
       "type": "String",
-      "defaultValue": 1
+      "defaultValue": "1"
     }
   },
   "variables": {},
