@@ -3,11 +3,12 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "type": "String"
+      "type": "String",
+      "defaultValue": "[uniqueString("TestFAName", subscription().subscriptionId)))]"
     },
     "location": {
       "type": "String",
-      "defaultValue": "TestResourceGroup5601RG"
+      "defaultValue": "[uniqueString("TestFAResourceGroup", subscription().subscriptionId)))]"
     },
     "hostingPlanName": {
       "type": "String"
