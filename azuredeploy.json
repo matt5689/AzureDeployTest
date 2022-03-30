@@ -3,12 +3,11 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "type": "String",
-      "defaultValue": ""
+      "type": "String"
     },
     "location": {
       "type": "String",
-      "defaultValue": ""
+      "defaultValue": "East US"
     },
     "hostingPlanName": {
       "type": "String"
