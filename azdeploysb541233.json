@@ -119,7 +119,7 @@
                         },
                         {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
-                            "value": "https://eventhubtest56fa2stor.blob.core.windows.net/publish/publish.zip"
+                            "value": "https://cs2100320037e49d424.blob.core.windows.net/publish/publish.zip"
                         },
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
