@@ -50,9 +50,6 @@
             "type": "string",
             "defaultValue": "TestFunctionApp56EPASP"
         },
-        "serverFarmResourceGroup": {
-            "type": "string"
-        },
         "alwaysOn": {
             "type": "bool",
             "defaultValue": "true"
