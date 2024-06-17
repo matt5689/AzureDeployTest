@@ -218,7 +218,18 @@
           {
               "type": "queues",
               "apiVersion": "2017-04-01",
-              "name": "myServiceBusQueue",
+              "name": "sbqueuepart",
+              "dependsOn": [
+                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+              ],
+              "properties": {
+                  "partitionCount": 10,
+                  "enablePartitioning": true,
+                  "enableBatchedOperations": false
+              },
+              "type": "queues",
+              "apiVersion": "2017-04-01",
+              "name": "sbqueuepartbatch",
               "dependsOn": [
                   "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
               ],
@@ -226,6 +237,17 @@
                   "partitionCount": 10,
                   "enablePartitioning": true,
                   "enableBatchedOperations": true
+              },
+              "type": "queues",
+              "apiVersion": "2017-04-01",
+              "name": "sbqueueonlybatchnopart",
+              "dependsOn": [
+                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+              ],
+              "properties": {
+                  "partitionCount": 10,
+                  "enablePartitioning": false,
+                  "enableBatchedOperations": false
               }
           }
       ]
