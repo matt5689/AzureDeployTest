@@ -6,8 +6,8 @@
             "type": "String",
             "defaultValue": "[format('func-{0}', uniqueString(resourceGroup().id))]",
             "metadata": {
-              "description": "The name of the Azure Function app."
-          }
+                "description": "The name of the Azure Function app."
+            }
         },
         "location": {
             "type": "String",
@@ -22,8 +22,8 @@
             "defaultValue": "FtpsOnly"
         },
         "storageAccountName": {
-          "type": "string",
-          "defaultValue": "[format('teststor5645{0}', substring(uniqueString(resourceGroup().id), 0, 4))]"
+            "type": "string",
+            "defaultValue": "[format('teststor5645{0}', substring(uniqueString(resourceGroup().id), 0, 4))]"
         },
         "netFrameworkVersion": {
             "type": "String",
@@ -122,12 +122,12 @@
                             "value": "https://eventhubtest56fa2stor.blob.core.windows.net/publish/publish.zip"
                         },
                         {
-                          "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                          "value": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2020-02-02').InstrumentationKey]"
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2020-02-02').InstrumentationKey]"
                         },
                         {
-                          "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                          "value": "[format('InstrumentationKey={0}', reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2020-02-02').InstrumentationKey)]"
+                            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                            "value": "[format('InstrumentationKey={0}', reference(resourceId('Microsoft.Insights/components', parameters('appInsightsName')), '2020-02-02').InstrumentationKey)]"
                         },
                         {
                             "name": "sbconnstring",
@@ -184,71 +184,75 @@
                 "defaultToOAuthAuthentication": true
             }
         },
-    {
-      "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2022-10-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
-    },
-    {
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2020-02-02",
-      "name": "[parameters('appInsightsName')]",
-      "location": "[parameters('location')]",
-      "kind": "web",
-      "properties": {
-        "Application_Type": "web",
-        "publicNetworkAccessForIngestion": "Enabled",
-        "publicNetworkAccessForQuery": "Enabled",
-        "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.ServiceBus/namespaces",
-      "apiVersion": "2017-04-01",
-      "name": "[parameters('serviceBusNamespaceName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard"
-      },
-      "resources": [
-          {
-              "type": "queues",
-              "apiVersion": "2017-04-01",
-              "name": "sbqueuepart",
-              "dependsOn": [
-                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-              ],
-              "properties": {
-                  "enablePartitioning": true,
-                  "enableBatchedOperations": false
-              },
-              "type": "queues",
-              "apiVersion": "2017-04-01",
-              "name": "sbqueuepartbatch",
-              "dependsOn": [
-                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-              ],
-              "properties": {
-                  "partitionCount": 10,
-                  "enablePartitioning": true,
-                  "enableBatchedOperations": true
-              },
-              "type": "queues",
-              "apiVersion": "2017-04-01",
-              "name": "sbqueueonlybatchnopart",
-              "dependsOn": [
-                  "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-              ],
-              "properties": {
-                  "enablePartitioning": false,
-                  "enableBatchedOperations": false
-              }
-          }
-      ]
-    }
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "apiVersion": "2022-10-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('location')]"
+        },
+        {
+            "type": "Microsoft.Insights/components",
+            "apiVersion": "2020-02-02",
+            "name": "[parameters('appInsightsName')]",
+            "location": "[parameters('location')]",
+            "kind": "web",
+            "properties": {
+                "Application_Type": "web",
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled",
+                "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.ServiceBus/namespaces",
+            "apiVersion": "2017-04-01",
+            "name": "[parameters('serviceBusNamespaceName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard"
+            },
+            "resources": [
+                {
+                    "type": "queues",
+                    "apiVersion": "2017-04-01",
+                    "name": "sbqueuepart",
+                    "dependsOn": [
+                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                    ],
+                    "properties": {
+                        "enablePartitioning": true,
+                        "enableBatchedOperations": false
+                    }
+                },
+                {
+                    "type": "queues",
+                    "apiVersion": "2017-04-01",
+                    "name": "sbqueuepartbatch",
+                    "dependsOn": [
+                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                    ],
+                    "properties": {
+                        "partitionCount": 10,
+                        "enablePartitioning": true,
+                        "enableBatchedOperations": true
+                    }
+                },
+                {
+                    "type": "queues",
+                    "apiVersion": "2017-04-01",
+                    "name": "sbqueueonlybatchnopart",
+                    "dependsOn": [
+                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                    ],
+                    "properties": {
+                        "enableBatchedOperations": true,
+                        "enablePartitioning": false
+                    }
+                }
+            ]
+        }
     ]
 }
