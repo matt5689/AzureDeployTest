@@ -251,6 +251,18 @@
                         "enableBatchedOperations": true,
                         "enablePartitioning": false
                     }
+                },
+                {
+                    "type": "Microsoft.Resources/deployments",
+                    "apiVersion": "2022-09-01",
+                    "name": "linkedTemplate",
+                    "properties": {
+                        "mode": "Incremental",
+                        "templateLink": {
+                            "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+                            "contentVersion": "1.0.0.0"
+                        }
+                    }
                 }
             ]
         }
