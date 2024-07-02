@@ -307,6 +307,92 @@
                         "enableBatchedOperations": true,
                         "enablePartitioning": false
                     }
+                },
+                {
+                    "apiVersion": "2020-12-01",
+                    "name": "[parameters('name2')]",
+                    "type": "Microsoft.Web/sites",
+                    "location": "[parameters('location2')]",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName2'))]"
+                    ],
+                    "properties": {
+                        "name": "[parameters('name2')]",
+                        "siteConfig": {
+                            "appSettings": [
+                                {
+                                    "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+                                    "value": "~2"
+                                },
+                                {
+                                    "name": "XDT_MicrosoftApplicationInsights_Mode",
+                                    "value": "default"
+                                },
+                                {
+                                    "name": "sbconnstring",
+                                    "value": "[listKeys(resourceId('Microsoft.ServiceBus/namespaces/AuthorizationRules', parameters('serviceBusNamespaceName'), 'RootManageSharedAccessKey'), '2017-04-01').primaryConnectionString]"
+                                }
+                            ],
+                            "metadata": [
+                                {
+                                    "name": "CURRENT_STACK",
+                                    "value": "[parameters('currentStack2')]"
+                                }
+                            ],
+                            "phpVersion": "[parameters('phpVersion2')]",
+                            "netFrameworkVersion": "[parameters('netFrameworkVersion2')]",
+                            "alwaysOn": "[parameters('alwaysOn2')]",
+                            "ftpsState": "[parameters('ftpsState2')]"
+                        },
+                        "serverFarmId": "[format('/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.Web/serverfarms/{2}', subscription().subscriptionId, resourceGroup().name, parameters('hostingPlanName2'))]",
+                        "clientAffinityEnabled": false,
+                        "virtualNetworkSubnetId": null,
+                        "httpsOnly": true,
+                        "publicNetworkAccess": "Enabled"
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+                            "apiVersion": "2022-09-01",
+                            "name": "[concat(parameters('name2'), '/scm')]",
+                            "properties": {
+                                "allow": false
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/Sites', parameters('name2'))]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+                            "apiVersion": "2022-09-01",
+                            "name": "[concat(parameters('name'), '/ftp')]",
+                            "properties": {
+                                "allow": false
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/Sites', parameters('name2'))]"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "apiVersion": "2020-12-01",
+                    "name": "[parameters('hostingPlanName2')]",
+                    "type": "Microsoft.Web/serverfarms",
+                    "location": "[parameters('location')]",
+                    "kind": "",
+                    "dependsOn": [],
+                    "properties": {
+                        "name": "[parameters('hostingPlanName2')]",
+                        "workerSize": "[parameters('workerSize2')]",
+                        "workerSizeId": "[parameters('workerSizeId2')]",
+                        "numberOfWorkers": "[parameters('numberOfWorkers2')]",
+                        "zoneRedundant": false
+                    },
+                    "sku": {
+                        "Tier": "[parameters('sku2')]",
+                        "Name": "[parameters('skuCode2')]"
+                    }
                 }
             ]
         }
