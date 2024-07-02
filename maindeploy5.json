@@ -259,7 +259,7 @@
                     "properties": {
                         "mode": "Incremental",
                         "templateLink": {
-                            "uri": "https://github.com/matt5689/AzureDeployTest/blob/main/appdeploy4.json",
+                            "uri": "https://github.com/matt5689/AzureDeployTest/blob/main/appdeploy5.json",
                             "contentVersion": "1.0.0.0"
                         }
                     }
