@@ -335,7 +335,7 @@
                                 },
                                 {
                                     "name": "WEBSITE_RUN_FROM_PACKAGE",
-                                    "value": ""
+                                    "value": "https://cloudshell56stor.blob.core.windows.net/publish/sbmvc.zip"
                                 }
                             ],
                             "metadata": [
@@ -360,7 +360,7 @@
                             "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
                             "apiVersion": "2022-09-01",
                             "name": "[concat(parameters('name2'), '/scm')]",
-                            "properties": {
+                            "properties": {e
                                 "allow": false
                             },
                             "dependsOn": [
