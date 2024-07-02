@@ -57,10 +57,6 @@
         "netFrameworkVersion": {
             "type": "string",
             "defaultValue": "v8.0"
-        },
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "defaultValue": "servicebustest56ns"
         }
     },
     "variables": {},
