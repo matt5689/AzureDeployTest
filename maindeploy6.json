@@ -261,11 +261,11 @@
                         "templateLink": {
                             "uri": "https://github.com/matt5689/AzureDeployTest/blob/main/appdeploy5.json",
                             "contentVersion": "1.0.0.0"
-                        }
-                    },
-                    "parameters" {
-                        "serviceBusNamespaceName": {
-                            "value": "[parameters('serviceBusNamespaceName')]"
+                        },
+                        "parameters": {
+                            "serviceBusNamespaceName": {
+                                "value": "[parameters('serviceBusNamespaceName')]"
+                            }
                         }
                     }
                 }
