@@ -74,10 +74,6 @@
                 "siteConfig": {
                     "appSettings": [
                         {
-                            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                            "value": "[reference('microsoft.insights/components/testwebappname56', '2015-05-01').ConnectionString]"
-                        },
-                        {
                             "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
                             "value": "~2"
                         },
