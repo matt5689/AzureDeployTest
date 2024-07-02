@@ -139,13 +139,34 @@
                 "name": "[parameters('hostingPlanName')]",
                 "workerSize": "[parameters('workerSize')]",
                 "workerSizeId": "[parameters('workerSizeId')]",
-                "numberOfWorkers": "[parameters('numberOfWorkers')]",
+                "numberOfWorkers": "[parameters('numberOfWorkers')]",e
                 "zoneRedundant": false
             },
             "sku": {
                 "Tier": "[parameters('sku')]",
                 "Name": "[parameters('skuCode')]"
             }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2022-09-01",
+            "name": "linkedTemplate",
+            "dependsOn": [
+                
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://github.com/matt5689/AzureDeployTest/blob/main/maindeploywork.json",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
         }
-    ]
+    ],
+    "outputs": {
+        "sbConnString": {
+            "type": "string",
+            "value": "[listKeys(resourceId('Microsoft.ServiceBus/namespaces/AuthorizationRules', parameters('serviceBusNamespaceName'), 'RootManageSharedAccessKey'), '2017-04-01').primaryConnectionString]"
+        }
+    }
 }
