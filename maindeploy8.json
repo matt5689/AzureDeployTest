@@ -256,6 +256,9 @@
                     "type": "Microsoft.Resources/deployments",
                     "apiVersion": "2022-09-01",
                     "name": "linkedTemplate",
+                    "dependsOn": [
+                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                    ],
                     "properties": {
                         "mode": "Incremental",
                         "templateLink": {
