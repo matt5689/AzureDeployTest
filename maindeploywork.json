@@ -251,26 +251,6 @@
                         "enableBatchedOperations": true,
                         "enablePartitioning": false
                     }
-                },
-                {
-                    "type": "Microsoft.Resources/deployments",
-                    "apiVersion": "2022-09-01",
-                    "name": "linkedTemplate",
-                    "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
-                    ],
-                    "properties": {
-                        "mode": "Incremental",
-                        "templateLink": {
-                            "uri": "https://github.com/matt5689/AzureDeployTest/blob/main/appdeploy5.json",
-                            "contentVersion": "1.0.0.0"
-                        },
-                        "parameters": {
-                            "serviceBusNamespaceName": {
-                                "value": "[parameters('serviceBusNamespaceName')]"
-                            }
-                        }
-                    }
                 }
             ]
         }
