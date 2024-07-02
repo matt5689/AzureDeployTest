@@ -360,7 +360,7 @@
                             "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
                             "apiVersion": "2022-09-01",
                             "name": "[concat(parameters('name2'), '/scm')]",
-                            "properties": {e
+                            "properties": {
                                 "allow": false
                             },
                             "dependsOn": [
