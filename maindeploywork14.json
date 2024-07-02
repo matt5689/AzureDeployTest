@@ -332,6 +332,10 @@
                                 {
                                     "name": "sbconnstring",
                                     "value": "[listKeys(resourceId('Microsoft.ServiceBus/namespaces/AuthorizationRules', parameters('serviceBusNamespaceName'), 'RootManageSharedAccessKey'), '2017-04-01').primaryConnectionString]"
+                                },
+                                {
+                                    "name": "WEBSITE_RUN_FROM_PACKAGE",
+                                    "value": ""
                                 }
                             ],
                             "metadata": [
