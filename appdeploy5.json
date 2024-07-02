@@ -139,7 +139,7 @@
                 "name": "[parameters('hostingPlanName')]",
                 "workerSize": "[parameters('workerSize')]",
                 "workerSizeId": "[parameters('workerSizeId')]",
-                "numberOfWorkers": "[parameters('numberOfWorkers')]",e
+                "numberOfWorkers": "[parameters('numberOfWorkers')]",
                 "zoneRedundant": false
             },
             "sku": {
