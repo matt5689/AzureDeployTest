@@ -9,6 +9,7 @@ graph TD
     F -- Yes --> B[Subnet]
     F -- No --> G{Resolved DNS IP is RFC 1918}
     G -- Yes --> B[Subnet]--> E[Internet / External Resource]
+    G -- No --> E[Internet (Not Through Subnet)]
     B --> C[NSG]
     C --> D[Route Table]
     D --> E[Internet / External Resource]
