@@ -8,7 +8,7 @@ graph TD
     A[Azure App Service Resource] --> F{Forced Tunneling or WEBSITE_VNET_ROUTE_ALL is 1?}
     F -- Yes --> B[Subnet]
     F -- No --> G{Resolved DNS IP is RFC 1918}
-    G -- Yes B[Subnet]--> E[Internet / External Resource]
+    G -- Yes --> B[Subnet]--> E[Internet / External Resource]
     B --> C[NSG]
     C --> D[Route Table]
     D --> E[Internet / External Resource]
